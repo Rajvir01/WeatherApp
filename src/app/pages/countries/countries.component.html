@@ -1,0 +1,63 @@
+<div class="container mt-4">
+  <!-- Search Bar -->
+  <input type="text" class="form-control mb-3" placeholder="Search by country name" [(ngModel)]="searchText"
+    (input)="searchCountries()">
+
+  <button class="btn btn-primary" (click)="toggleView()">
+    {{ isGridView ? 'Switch to Table View' : 'Switch to Grid View' }}
+  </button>
+
+  <!-- Countries Table -->
+  <table class="table table-striped" *ngIf="!isGridView">
+    <thead class="thead-dark">
+      <tr>
+        <th (click)="sortCountries('name')" class="sortable">Country Name ⬆⬇</th>
+        <th (click)="sortCountries('region')" class="sortable">Region ⬆⬇</th>
+        <th>Capital</th>
+        <th>Population</th>
+        <th>Weather</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let country of filteredCountries.slice((page - 1) * pageSize, page * pageSize)"
+        (click)="navigateToWeather(country)" style="cursor: pointer;">
+        <td>{{ country.name.common }}</td>
+        <td>{{ country.region }}</td>
+        <td>{{ country.capital ? country.capital[0] : 'N/A' }}</td>
+        <td>{{ country.population | number }}</td>
+        <td>Click to view</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="row" *ngIf="isGridView">
+    <div class="col-md-4 mb-3" *ngFor="let country of filteredCountries | slice:(page-1)*pageSize:(page*pageSize)">
+      <div class="card " (click)="navigateToWeather(country)" style="cursor: pointer;">
+        <img [src]="country.flags.png" class="card-img-top" alt="Country Flag">
+        <div class="card-body">
+          <h5 class="card-title">{{ country.name.common }}</h5>
+          <p class="card-text"><strong>Region:</strong> {{ country.region }}</p>
+          <p class="card-text"><strong>Capital:</strong> {{ country.capital ? country.capital[0] : 'N/A' }}</p>
+          <p class="card-text"><strong>Population:</strong> {{ country.population | number }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="page === 1">
+        <a class="page-link" (click)="page = page - 1">&laquo;</a>
+      </li>
+      <li class="page-item" *ngFor="let p of getPaginationArray(); let i = index" [class.active]="page === i + 1">
+        <a class="page-link" (click)="page = i + 1">{{ i + 1 }}</a>
+      </li>
+      <li class="page-item" [class.disabled]="page === getTotalPages()">
+        <a class="page-link" (click)="page = page + 1">&raquo;</a>
+      </li>
+    </ul>
+  </nav>
+
+
+</div>

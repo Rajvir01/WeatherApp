@@ -1,27 +1,78 @@
-# NewWeatherApp
+# 🌤 Angular Weather App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
+This is a simple Angular Weather App that allows users to view weather conditions for different countries. It fetches country data from the REST Countries API and weather data from the OpenWeatherMap API. The app also features a **map view** and a **moon phase component**.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 Features
 
-## Code scaffolding
+✅ **List of Countries** – Fetches and displays countries from REST Countries API with sorting, filtering, and pagination.  
+✅ **Weather Page** – Displays real-time weather data using OpenWeatherMap API.  
+✅ **Weather Icons** – Uses custom icons to represent different weather conditions.  
+✅ **Unit Toggle** – Switch between metric and imperial units.  
+✅ **Interactive Map** – Displays the location of the country’s capital using Leaflet.js.  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 🛠 Technologies Used
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Angular** – Frontend Framework  
+- **TypeScript** – Programming Language  
+- **Firebase** – (Optional) Backend Database  
+- **REST Countries API** – Fetches country details  
+- **OpenWeatherMap API** – Provides weather data  
+- **Leaflet.js** – Interactive map for the capital city  
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🔧 Installation & Setup
 
-## Running end-to-end tests
+### 1️⃣ Clone the repository
+```sh
+git clone https://github.com/rajvir01/angular-weather-app.git
+cd angular-weather-app
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 2️⃣ Install dependencies
+```sh
+npm install
+```
 
-## Further help
+### 4️⃣ Run the app
+```sh
+ng serve
+```
+Open [http://localhost:4200](http://localhost:4200) in your browser.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+
+## 📂 Project Structure
+```
+angular-weather-app/
+│── src/
+│   ├── app/
+│   │   ├── components/
+│   │   │   ├── country-list/
+│   │   │   ├── weather/
+│   │   ├── services/
+│   │   │   ├── weather.service.ts
+│   │   │   ├── country.service.ts
+│   │   ├── app.component.ts
+│   │   ├── app.module.ts
+│   ├── assets/
+│   │   ├── weather-icons/
+│   ├── environments/
+│── angular.json
+│── package.json
+│── README.md
+```
+
+---
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**. Feel free to use and modify it!
+
+---

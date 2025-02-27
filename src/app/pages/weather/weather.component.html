@@ -1,0 +1,27 @@
+<div class="weather-card">
+  <h2>Weather in {{ capital }}, {{ country }}</h2>
+
+  <!-- Toggle Switch for Units -->
+  <div class="switch-container">
+    <span>🌡️ Metric (°C)</span>
+    <label class="switch">
+      <input type="checkbox" (change)="toggleUnits()" [checked]="unit === 'imperial'">
+      <span class="slider round"></span>
+    </label>
+    <span>Imperial (°F) 🌡️</span>
+  </div>
+
+  <!-- Weather Data -->
+  <div *ngIf="weatherData" class="weather-details">
+    <img [src]="weatherData.iconUrl" alt="Weather Icon" class="weather-icon" />
+    <p><strong>Temperature:</strong> {{ weatherData.main.temp }}° {{ unit === 'metric' ? 'C' : 'F' }}</p>
+    <p><strong>Humidity:</strong> {{ weatherData.main.humidity }}%</p>
+    <p><strong>Wind Speed:</strong> {{ weatherData.wind.speed }} {{ unit === 'metric' ? 'm/s' : 'mph' }}</p>
+  </div>
+
+
+  <!-- Map Display -->
+  <div id="map" class="map-container"></div>
+
+  <button class="back-btn" (click)="goBack()">⬅ Back to Countries</button>
+</div>
