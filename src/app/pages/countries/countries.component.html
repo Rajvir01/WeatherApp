@@ -1,4 +1,6 @@
-<div class="container mt-4">
+<div class="container ">
+  <h2 class="text-center mb-4">Country Weather Information Dashboard</h2>
+
   <!-- Search Bar -->
   <input type="text" class="form-control mb-3" placeholder="Search by country name" [(ngModel)]="searchText"
     (input)="searchCountries()">
@@ -31,8 +33,9 @@
   </table>
 
   <div class="row" *ngIf="isGridView">
-    <div class="col-md-4 mb-3" *ngFor="let country of filteredCountries | slice:(page-1)*pageSize:(page*pageSize)">
-      <div class="card " (click)="navigateToWeather(country)" style="cursor: pointer;">
+    <div class="col-md-3 col-sm-6 mb-3"
+      *ngFor="let country of filteredCountries | slice:(page-1)*pageSize:(page*pageSize)">
+      <div class="card country-card" (click)="navigateToWeather(country)">
         <img [src]="country.flags.png" class="card-img-top" alt="Country Flag">
         <div class="card-body">
           <h5 class="card-title">{{ country.name.common }}</h5>
@@ -43,6 +46,7 @@
       </div>
     </div>
   </div>
+
 
   <!-- Pagination -->
   <nav aria-label="Page navigation">

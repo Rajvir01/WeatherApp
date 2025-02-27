@@ -1,6 +1,6 @@
 /* Weather Card with Glassmorphism */
 .weather-card {
-  max-width: 450px;
+  max-width: 750px;
   margin: auto;
   padding: 20px;
   border-radius: 12px;
@@ -97,7 +97,7 @@ input:checked+.slider:before {
 }
 
 #map {
-  width: 400px;
+  width: 700px;
   height: 400px;
   border-radius: 10px;
 }
