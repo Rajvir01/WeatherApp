@@ -1,6 +1,6 @@
 # 🌤 Angular Weather App
 
-This is a simple Angular Weather App that allows users to view weather conditions for different countries. It fetches country data from the REST Countries API and weather data from the OpenWeatherMap API. The app also features a **map view** and a **moon phase component**.
+This is a simple Angular Weather App that allows users to view weather conditions for different countries. It fetches country data from the REST Countries API and weather data from the OpenWeatherMap API. The app also features a **map view**.
 
 ---
 
